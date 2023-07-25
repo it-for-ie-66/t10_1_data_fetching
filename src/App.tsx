@@ -16,12 +16,20 @@ function App() {
       .then((res) => res.json())
       .then((data) => setTodos(data));
   }, []);
+
+  // BAD CODE
+  // const URL = "https://jsonplaceholder.typicode.com/todos";
+  // fetch(URL)
+  //   .then((res) => res.json())
+  //   .then((data) => setTodos(data));
+  // console.log("Rendered");
+
   return (
     <>
       <div>
         {todos.map((todo) => {
           return (
-            <div>
+            <div key={todo.id}>
               {todo.id} {todo.title}
             </div>
           );
